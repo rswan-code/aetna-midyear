@@ -72,9 +72,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
 .mkt-stat-val{font-size:17px;font-weight:700;color:#2e4456}
 .mkt-stat-val.green{color:#49a601}
 .mkt-stat-val.blue{color:#0076bf}
-.mkt-rev-bar{margin-top:12px}
-.mkt-rev-label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
-.mkt-rev-label .pct{font-weight:700;color:#2e4456}
 .progress-track{background:#eff1f3;border-radius:4px;height:6px}
 .progress-fill{background:#49a601;border-radius:4px;height:6px;transition:width .6s}
 .progress-fill.amber{background:#ff9400}
@@ -183,6 +180,18 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
 /* FOOTER */
 .footer{margin-top:40px;padding:20px;text-align:center;font-size:11px;color:#aab5c0;border-top:1px solid #d2dce8}
 
+/* STAGE HEADER */
+.stage-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;margin-top:32px}
+.stage-num{width:36px;height:36px;border-radius:50%;background:#49a601;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stage-label-wrap{display:flex;flex-direction:column;gap:2px}
+.stage-label-tag{font-size:10px;font-weight:700;color:#49a601;text-transform:uppercase;letter-spacing:.6px}
+.stage-title-text{font-family:'Roboto Slab',serif;font-weight:600;font-size:18px;color:#2e4456}
+.stage-desc-text{font-size:12px;color:#8a9aab}
+.stage-divider{flex:1;height:1px;background:#d2dce8}
+.stage-card{background:#fff;border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-left:4px solid #49a601}
+.stage-narrative{font-size:14px;color:#2e4456;line-height:1.75;margin-bottom:20px;font-style:italic;border-bottom:1px solid #eff1f3;padding-bottom:16px}
+.stage-narrative strong{font-style:normal;color:#2e4456}
+
 /* UTILITY */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
@@ -194,8 +203,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
 <div class="nav">
   <div class="nav-brand">Pyx Health &times; <span>Aetna Medicaid</span></div>
   <div class="nav-tabs">
-    <div class="nav-tab active" onclick="showPage('value',this)">Value View</div>
-    <div class="nav-tab" onclick="showPage('national',this)">Program Data</div>
+    <div class="nav-tab active" onclick="showPage('value',this)">National Overview</div>
     <div class="nav-tab" onclick="showPage('fl',this)">Florida</div>
     <div class="nav-tab" onclick="showPage('ky',this)">Kentucky</div>
     <div class="nav-tab" onclick="showPage('ok',this)">Oklahoma</div>
@@ -210,7 +218,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
   </div>
 </div>
 
-<!-- ======================== VALUE VIEW ======================== -->
+<!-- ======================== NATIONAL / VALUE VIEW ======================== -->
 <div class="page active" id="page-value">
 
   <div class="value-anchor">
@@ -220,388 +228,289 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </svg>
     <div class="va-text">
       <h2>You asked us to reach members who weren't accessing care. <strong>Here's what happened.</strong></h2>
-      <p>Across 8 markets, the Aetna Medicaid Navigate program has moved members from unreachable to engaged, from engaged to identified, from identified to activated. This view is organized around the questions that matter to Aetna — not around what Pyx did.</p>
+      <p>Across 8 markets, the Navigate program has moved members from unreachable to engaged, from engaged to identified, from identified to activated. Each stage below maps what Pyx is doing to what it means for Aetna.</p>
     </div>
   </div>
 
   <!-- WHAT YOU ASKED US TO DO -->
   <div class="section-header" style="margin-top:0">
-    <span class="section-label">Your Goals</span>
-    <span class="section-title">What you told us you needed — by market</span>
+    <span class="section-label">What you asked us to do</span>
+    <span class="section-title">Plan goals by market</span>
     <div class="section-divider"></div>
   </div>
 
   <div class="kpi-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-    <div class="kpi bh-card" style="border-top-color:#0076bf">
-      <div class="kpi-lbl" style="color:#0076bf">Florida · Kentucky · Oklahoma · Illinois</div>
-      <div class="kpi-val" style="font-size:16px;line-height:1.3">Access to care for members with BH diagnoses and high utilizers</div>
-      <div class="kpi-ctx">4 markets, 2,061 enrolled members</div>
-    </div>
-    <div class="kpi" style="border-top-color:#29a4a2">
-      <div class="kpi-lbl" style="color:#29a4a2">Louisiana · Michigan</div>
-      <div class="kpi-val" style="font-size:16px;line-height:1.3">Prenatal and postpartum care completion for maternal members</div>
-      <div class="kpi-ctx">2 markets, 971 enrolled members</div>
-    </div>
-    <div class="kpi" style="border-top-color:#d6661a">
-      <div class="kpi-lbl" style="color:#d6661a">Texas</div>
-      <div class="kpi-val" style="font-size:16px;line-height:1.3">Chronic condition management — closing gaps for diabetic members</div>
-      <div class="kpi-ctx">1 market, 545 enrolled members</div>
+    <div class="kpi" style="border-top-color:#0076bf">
+      <div class="kpi-lbl" style="color:#0076bf">Florida · Oklahoma · Illinois</div>
+      <div class="kpi-val" style="font-size:15px;line-height:1.3">Access to care for members with BH diagnoses and high utilizers</div>
+      <div class="kpi-ctx">3 markets · 1,853 enrolled</div>
     </div>
     <div class="kpi" style="border-top-color:#5542a7">
       <div class="kpi-lbl" style="color:#5542a7">Kentucky</div>
-      <div class="kpi-val" style="font-size:16px;line-height:1.3">Support members with tobacco dependency toward cessation</div>
-      <div class="kpi-ctx">Included in BH market count above</div>
+      <div class="kpi-val" style="font-size:15px;line-height:1.3">Support members with tobacco dependency toward cessation</div>
+      <div class="kpi-ctx">1 market · 598 enrolled</div>
+    </div>
+    <div class="kpi" style="border-top-color:#29a4a2">
+      <div class="kpi-lbl" style="color:#29a4a2">Louisiana · Michigan</div>
+      <div class="kpi-val" style="font-size:15px;line-height:1.3">Prenatal and postpartum care completion for maternal members</div>
+      <div class="kpi-ctx">2 markets · 971 enrolled</div>
+    </div>
+    <div class="kpi" style="border-top-color:#d6661a">
+      <div class="kpi-lbl" style="color:#d6661a">Texas</div>
+      <div class="kpi-val" style="font-size:15px;line-height:1.3">Chronic condition management — closing care gaps for diabetic members</div>
+      <div class="kpi-ctx">1 market · 545 enrolled</div>
     </div>
   </div>
 
-  <div class="tp-block" id="tp-vv-goals">
-    <h4>Talking Points — Plan Goals</h4>
-    <ul>
-      <li>Each market in this program was designed around a different clinical priority — because Aetna told us what mattered in each state. This isn't a one-size program. It's a population-specific intervention.</li>
-      <li>BH access, maternal health, chronic condition management, and cessation share a common challenge: the members who need the most support are the hardest to reach and keep engaged through traditional plan outreach. That's what this program was built to solve.</li>
-      <li>Everything we'll walk through today maps back to these goals — not to Pyx activity, but to outcomes against what you bought this for.</li>
-    </ul>
+  <!-- STAGE 1 -->
+  <div class="stage-header">
+    <div class="stage-num">1</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 1</div>
+      <div class="stage-title-text">Member Response</div>
+      <div class="stage-desc-text">Members are responding to outreach and entering the program at expected rates</div>
+    </div>
+    <div class="stage-divider"></div>
   </div>
 
-  <!-- Q1: ARE WE REACHING THE RIGHT PEOPLE -->
-  <div class="section-header">
-    <span class="section-label" style="background:#2e4456">Question 1</span>
-    <span class="section-title" style="font-style:italic;color:#6b7f8f">"Are we reaching the right people?"</span>
-    <div class="section-divider"></div>
-  </div>
-
-  <div style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)">
-    <p style="font-size:14px;color:#2e4456;line-height:1.7;margin-bottom:16px">
-      <strong>Yes.</strong> Members are responding to outreach and entering the program at expected rates. Enrollment reflects priority populations aligned to plan goals — not just whoever picked up the phone.
-    </p>
+  <div class="stage-card">
+    <div class="stage-narrative">Targeted outreach is effectively converting priority populations into program enrollment, establishing a strong foundation for downstream engagement and care activation. <strong>Enrollment reflects priority populations aligned to plan goals — not just whoever picked up the phone.</strong></div>
     <div class="kpi-grid">
-      <div class="kpi green"><div class="kpi-lbl">Members in Program</div><div class="kpi-val">4,424</div><div class="kpi-ctx">7 months, all 8 markets</div><div class="kpi-why">4,424 is not a contact count. These are members who spoke with a Pyx care team member, shared their situation, and entered a care plan. Members who were unreachable before.</div></div>
-      <div class="kpi blue"><div class="kpi-lbl">OK: Target Diagnosis Members</div><div class="kpi-val">66%</div><div class="kpi-ctx">Of enrolled — highest diagnostic concentration in program</div><div class="kpi-why">When 66% of enrolled members carry the specific diagnosis the plan targeted, outreach is finding the right people — not just the easiest people to reach.</div></div>
-      <div class="kpi teal"><div class="kpi-lbl">OK: Outreach Response Rate</div><div class="kpi-val">75%</div><div class="kpi-ctx">3 in 4 members contacted enrolled</div><div class="kpi-why">75% response tells you something important: members with BH diagnoses and high utilization are not hard to reach because they don't want help. They're hard to reach because the right outreach hasn't found them.</div></div>
-      <div class="kpi orange"><div class="kpi-lbl">MI: Maternal Response Rate</div><div class="kpi-val">47%</div><div class="kpi-ctx">Nearly 1 in 2 maternal members contacted enrolled</div><div class="kpi-why">Nearly half of all maternal members contacted chose to engage — in a population managing pregnancy alongside Medicaid access constraints. Unmet need is being answered.</div></div>
-      <div class="kpi purple"><div class="kpi-lbl">TX: Outreach Response Rate</div><div class="kpi-val">42%</div><div class="kpi-ctx">Diabetic members engaging at 2x typical Medicaid rates</div><div class="kpi-why">Diabetic members responding to outreach at 42% tells you the program is reaching members at a moment of genuine need — not just capturing the always-engaged.</div></div>
+      <div class="kpi green">
+        <div class="kpi-lbl">Members in Program</div><div class="kpi-val">4,424</div>
+        <div class="kpi-ctx">7 months across all 8 markets</div>
+        <div class="kpi-why">4,424 care relationships established — members who spoke with a Pyx care team member, shared their situation, and entered a care plan. Not contacts. Not outreach attempts. Members.</div>
+      </div>
+      <div class="kpi blue">
+        <div class="kpi-lbl">OK: Priority Population Enrolled</div><div class="kpi-val">66%</div>
+        <div class="kpi-ctx">Of enrolled carry a target diagnosis</div>
+        <div class="kpi-why">When 2 in 3 enrolled members carry the specific diagnosis the plan targeted, outreach is finding the right people — not just the easiest to reach.</div>
+      </div>
+      <div class="kpi teal">
+        <div class="kpi-lbl">OK: Member Response Rate</div><div class="kpi-val">75%</div>
+        <div class="kpi-ctx">Of members contacted, 3 in 4 enrolled</div>
+        <div class="kpi-why">75% tells you these members want help. They're not disengaged — they just haven't been reached the right way before. Pyx reached them the right way.</div>
+      </div>
+      <div class="kpi orange">
+        <div class="kpi-lbl">MI: Maternal Response Rate</div><div class="kpi-val">47%</div>
+        <div class="kpi-ctx">Nearly 1 in 2 maternal members contacted enrolled</div>
+        <div class="kpi-why">Nearly half of all maternal members contacted chose to engage — in a population managing pregnancy alongside Medicaid access constraints. Unmet need is being answered.</div>
+      </div>
+      <div class="kpi purple">
+        <div class="kpi-lbl">TX: Diabetic Response Rate</div><div class="kpi-val">42%</div>
+        <div class="kpi-ctx">Of members contacted</div>
+        <div class="kpi-why">Diabetic members responding at 42% signals the program is reaching members at a moment of genuine need — not capturing the always-engaged.</div>
+      </div>
     </div>
-    <div class="tp-block" id="tp-vv-reach">
-      <h4>Talking Points — Reaching the Right People</h4>
+    <div class="chart-wrap" style="margin-bottom:0;box-shadow:none;padding:16px 0 0;border-top:1px solid #eff1f3">
+      <div class="chart-title">New Members Enrolled per Month (Nov 2025 – May 2026)</div>
+      <div class="bar-chart" id="enrollment-chart" style="margin-top:12px"></div>
+      <p style="font-size:11px;color:#aab5c0;margin-top:10px">* May reflects 7 days of enrollment. Program is actively growing — 49% of enrolled members are still in month 1.</p>
+    </div>
+    <div class="tp-block" id="tp-stage1">
+      <h4>Talking Points — Member Response</h4>
       <ul>
-        <li>The enrollment number is table stakes. What matters is who enrolled. Oklahoma's 66% target-diagnosis concentration, Michigan's 47% maternal response rate, Texas's 42% diabetic response — these aren't random Medicaid members. They're the members Aetna needed to reach.</li>
-        <li>A 75% outreach response rate in a BH population explodes the myth that these members are disengaged. They're not disengaged — they just haven't been reached the right way. Pyx reached them the right way.</li>
-        <li>49% of enrolled members are still in their first month of the program. This is an actively growing cohort, not a mature one. The activation and quality numbers we'll show today are early signals, not a ceiling.</li>
+        <li>The enrollment number is table stakes. What matters is who enrolled. Oklahoma's 66% target-diagnosis concentration, Michigan's 47% maternal response rate, Texas's 42% diabetic response — these aren't random Medicaid members. They're exactly the members Aetna needed to reach.</li>
+        <li>A 75% outreach response rate in a BH/high-utilizer population explodes the myth that these members are disengaged. They respond when reached the right way.</li>
+        <li>49% of enrolled members are still in month 1 — this is an actively growing cohort. The activation numbers we'll show are early signals, not a ceiling.</li>
       </ul>
     </div>
   </div>
 
-  <!-- Q2: ARE WE LEARNING ANYTHING MEANINGFUL -->
-  <div class="section-header">
-    <span class="section-label" style="background:#2e4456">Question 2</span>
-    <span class="section-title" style="font-style:italic;color:#6b7f8f">"Are we learning anything meaningful that can change outcomes?"</span>
-    <div class="section-divider"></div>
+  <!-- STAGE 2 -->
+  <div class="stage-header">
+    <div class="stage-num">2</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 2</div>
+      <div class="stage-title-text">Member Engagement</div>
+      <div class="stage-desc-text">Engagement is deeper than before — more frequent, more meaningful, care-team led</div>
+    </div>
+    <div class="stage-divider"></div>
   </div>
 
-  <div style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)">
-    <p style="font-size:14px;color:#2e4456;line-height:1.7;margin-bottom:16px">
-      <strong>Yes — and it's surfacing what standard outreach misses.</strong> Deeper engagement is revealing barriers that don't show up in claims data or prior outreach. These are the barriers that explain why members weren't accessing care in the first place.
-    </p>
+  <div class="stage-card">
+    <div class="stage-narrative">More enrolled members are engaging directly with the care team, and that engagement is deeper than before. Members are interacting more frequently and spending more time with the care team once engaged. <strong>This reflects the shift to a proactive, needs-based model — engagement is intentional and care-team led, not app-based or reactive.</strong></div>
+    <div class="kpi-grid">
+      <div class="kpi green">
+        <div class="kpi-lbl">OK: Direct Care Team Engagement</div><div class="kpi-val">91%</div>
+        <div class="kpi-ctx">vs. 62% under prior model — +29 points</div>
+        <div class="kpi-why">91% of enrolled members are talking directly to a care team member. Not getting a reminder. Not an automated outreach. A human conversation — the kind where barriers surface and care plans get built.</div>
+      </div>
+      <div class="kpi blue">
+        <div class="kpi-lbl">OK: Calls per Member</div><div class="kpi-val">3.0</div>
+        <div class="kpi-ctx">+130% vs. prior model</div>
+        <div class="kpi-why">Three touchpoints per member means care plans are being built, updated, and followed. Frequency is the mechanism that turns a first conversation into a completed care action.</div>
+      </div>
+      <div class="kpi teal">
+        <div class="kpi-lbl">OK: Avg Minutes per Call</div><div class="kpi-val">31 min</div>
+        <div class="kpi-ctx">+63% vs. prior model</div>
+        <div class="kpi-why">31 minutes is a real conversation — enough time to learn that a member can't get to their PCP because they have no car, no childcare, and a medication they can't afford. That's what changes outcomes.</div>
+      </div>
+      <div class="kpi orange">
+        <div class="kpi-lbl">OK: Engagement Increase</div><div class="kpi-val">+47%</div>
+        <div class="kpi-ctx">Overall since moving to new model</div>
+        <div class="kpi-why">A 47% increase isn't a campaign result — it's a model-level change. The proactive, needs-based approach is structurally different from the prior reactive model, and members are responding to that difference.</div>
+      </div>
+    </div>
+    <div style="background:#f6f6f6;border-radius:8px;padding:16px;margin-top:16px">
+      <div style="font-size:12px;font-weight:700;color:#2e4456;margin-bottom:12px">Months of sustained engagement — all markets</div>
+      <div id="months-chart"></div>
+      <div style="font-size:11px;color:#8a9aab;margin-top:10px">51% of enrolled members have sustained more than 1 month of engagement. 165 members have sustained 5+ months — the highest-touch, highest-need cohort. Exactly the population this program was designed to serve.</div>
+    </div>
+    <div class="tp-block" id="tp-stage2">
+      <h4>Talking Points — Member Engagement</h4>
+      <ul>
+        <li>The shift from 62% to 91% direct engagement is not incremental improvement — it's a structural change in how members are served. The prior model waited for members to engage. This model goes to them, with a plan.</li>
+        <li>3 calls per member averaging 31 minutes each is more than 90 minutes of direct care conversation per enrolled member. That's enough time to know someone's barriers, build a care plan, and start navigating them toward action.</li>
+        <li>More than half of enrolled members have now sustained multi-month engagement — the program has matured from launch to sustained delivery. The members staying in active care relationships are the ones most likely to activate into care next.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STAGE 3 -->
+  <div class="stage-header">
+    <div class="stage-num">3</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 3</div>
+      <div class="stage-title-text">Deep Engagement</div>
+      <div class="stage-desc-text">Sustained engagement uncovers barriers that traditional outreach misses</div>
+    </div>
+    <div class="stage-divider"></div>
+  </div>
+
+  <div class="stage-card">
+    <div class="stage-narrative">Deeper engagement is surfacing barriers to care that standard outreach does not identify. <strong>This gives the plan a clearer path to intervention — and to outcomes. You can't solve barriers you can't see. Now we can see them, at scale.</strong></div>
     <div style="background:#f6f6f6;border-radius:8px;padding:20px;margin-bottom:16px">
-      <div style="font-size:13px;font-weight:700;color:#2e4456;margin-bottom:12px">Oklahoma — Barrier Identification: New Model vs. Prior Contract</div>
-      <div style="font-size:11px;color:#8a9aab;margin-bottom:14px">+5.75 average point increase in barrier identification vs. prior model — surfacing what traditional outreach missed</div>
+      <div style="font-size:13px;font-weight:700;color:#2e4456;margin-bottom:4px">Oklahoma — Barrier Identification</div>
+      <div style="font-size:11px;color:#8a9aab;margin-bottom:16px">New model vs. prior contract · +5.75 average point increase in barrier identification</div>
       <div id="vv-barriers"></div>
     </div>
-    <div class="kpi-grid">
-      <div class="kpi teal"><div class="kpi-lbl">OK: Engagement Depth</div><div class="kpi-val">91%</div><div class="kpi-ctx">Of enrolled members engaging directly with care team (vs. 62% prior)</div><div class="kpi-why">91% care team engagement means 91% of enrolled members have had a real conversation — not a reminder text, not an automated call. A conversation where barriers surface.</div></div>
-      <div class="kpi blue"><div class="kpi-lbl">OK: Avg Call Length</div><div class="kpi-val">31 min</div><div class="kpi-ctx">+63% vs. prior model</div><div class="kpi-why">31 minutes is long enough to learn that a member can't get to their PCP because they have no car, no childcare, and a medication they can't afford. That's what changes outcomes.</div></div>
-      <div class="kpi orange"><div class="kpi-lbl">OK: Calls per Member</div><div class="kpi-val">3.0</div><div class="kpi-ctx">+130% vs. prior model</div><div class="kpi-why">Three touchpoints per member means barriers aren't identified once and forgotten — they're tracked, followed up, and resolved across the engagement lifecycle.</div></div>
-    </div>
-    <div class="tp-block" id="tp-vv-learn">
-      <h4>Talking Points — What We're Learning</h4>
+    <div class="tp-block" id="tp-stage3">
+      <h4>Talking Points — Deep Engagement</h4>
       <ul>
-        <li>Transportation identified in 25% of Oklahoma members — up from 13% under the prior model. These aren't new barriers. They existed before. The prior model just wasn't surfacing them. Now we know, and we can act on them.</li>
-        <li>Medication adherence at 38% — up from 32%. For a BH and high-utilizer population, medication non-adherence is the single most preventable driver of avoidable hospitalization. Identifying it is the first step to resolving it.</li>
-        <li>Standard outreach identifies barriers at the point of contact — one interaction, one data point. Pyx identifies barriers through repeated engagement over time. That's why the numbers are higher. More depth, more truth.</li>
-        <li>This data is a clinical intelligence layer the plan didn't have before. It's not just engagement reporting — it's a population needs map that informs care coordination priorities for each market.</li>
+        <li>Transportation identified in 25% of Oklahoma members — up from 13%. These aren't new barriers. They existed before. The prior model just wasn't surfacing them. Now the care team knows, and can act.</li>
+        <li>Medication adherence at 38% — up from 32%. For a BH and high-utilizer population, non-adherence is the single most preventable driver of avoidable hospitalization. Identifying it is the prerequisite to resolving it.</li>
+        <li>Standard outreach identifies barriers at the point of first contact — one interaction, one data point. Pyx identifies barriers through sustained engagement over time. More depth, more truth, more opportunity to intervene.</li>
+        <li>This is a clinical intelligence layer the plan didn't have before. It's not engagement reporting — it's a population needs map that informs care coordination priorities in every market.</li>
       </ul>
     </div>
   </div>
 
-  <!-- Q3: ARE MEMBERS DOING SOMETHING DIFFERENT -->
-  <div class="section-header">
-    <span class="section-label" style="background:#2e4456">Question 3</span>
-    <span class="section-title" style="font-style:italic;color:#6b7f8f">"Are members doing something different?"</span>
-    <div class="section-divider"></div>
+  <!-- STAGE 4 -->
+  <div class="stage-header">
+    <div class="stage-num">4</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 4</div>
+      <div class="stage-title-text">Activation</div>
+      <div class="stage-desc-text">Members are taking action to access care</div>
+    </div>
+    <div class="stage-divider"></div>
   </div>
 
-  <div style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)">
-    <p style="font-size:14px;color:#2e4456;line-height:1.7;margin-bottom:16px">
-      <strong>Yes. Members who weren't accessing care are now accessing it.</strong> Across every market with 5-month data, enrolled members are completing visits, setting appointments, and taking actions that weren't happening before engagement.
-    </p>
+  <div class="stage-card">
+    <div class="stage-narrative">As a result of sustained engagement and barrier resolution, members are now accessing care. <strong>Members who weren't completing recommended visits are now completing them. This reflects early behavior change — and these completed visits are the leading indicators of improved plan quality performance.</strong></div>
     <div id="vv-activation-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:20px"></div>
     <div style="background:#f0f7e8;border:1px solid #87d001;border-radius:8px;padding:16px;margin-bottom:16px">
-      <div style="font-size:12px;font-weight:700;color:#2a6200;margin-bottom:8px">What "activation" means for each program type:</div>
+      <div style="font-size:12px;font-weight:700;color:#2a6200;margin-bottom:10px">What activation means for each program type</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;color:#2e4456;line-height:1.5">
-        <div><strong style="color:#0076bf">BH members (FL, OK, IL):</strong> Completed a behavioral health visit, therapy session, or PCP follow-up — the appointments that reduce crisis utilization and support ongoing mental health management.</div>
-        <div><strong style="color:#d6661a">Diabetic members (TX):</strong> Completed a diabetes-related care visit — A1C monitoring, blood pressure check, retinal exam, or PCP management appointment. Directly connected to HEDIS chronic condition measures.</div>
-        <div><strong style="color:#29a4a2">Maternal members (MI, LA):</strong> Completed a prenatal or postpartum visit — the care that reduces maternal morbidity risk and closes HEDIS postpartum gap measures.</div>
-        <div><strong style="color:#5542a7">Cessation members (KY):</strong> Set a quit date or completed a cessation-support milestone — behavior change documented, not just engagement reported.</div>
+        <div><strong style="color:#0076bf">BH (FL, OK, IL):</strong> Completed a behavioral health visit, therapy session, or PCP follow-up — the visits that reduce crisis utilization and close BH care gaps.</div>
+        <div><strong style="color:#d6661a">Diabetic (TX):</strong> Completed a diabetes-related care visit — A1C monitoring, blood pressure, retinal exam, PCP management. Directly connected to HEDIS chronic condition measures.</div>
+        <div><strong style="color:#29a4a2">Maternal (MI, LA):</strong> Completed a prenatal or postpartum visit — closing HEDIS postpartum gap measures and reducing maternal morbidity risk.</div>
+        <div><strong style="color:#5542a7">Cessation (KY):</strong> Set a quit date or completed a cessation milestone — documented behavior change, not just engagement.</div>
       </div>
     </div>
-    <div class="tp-block" id="tp-vv-action">
-      <h4>Talking Points — Members Taking Action</h4>
+    <div style="margin-top:16px">
+      <div style="font-size:13px;font-weight:700;color:#2e4456;margin-bottom:12px">All markets at a glance</div>
+      <div class="market-grid" id="national-market-grid"></div>
+    </div>
+    <div class="tp-block" id="tp-stage4">
+      <h4>Talking Points — Activation</h4>
       <ul>
-        <li>Texas at 88% is not an outlier — it's the benchmark. It shows what this model is capable of when the population is clearly defined and the program has depth of engagement. Every other market is moving toward that number.</li>
-        <li>Michigan's 86% maternal visit completion rate deserves emphasis: the national Medicaid average for postpartum visit completion is approximately 60–65%. Michigan's Pyx-enrolled members are significantly outperforming that benchmark — in a state where maternal health quality is a plan priority.</li>
-        <li>32 quit dates set in Kentucky is a clinical outcome. Not a goal set, not an intent captured. A commitment made. Each one represents a member who, before Pyx engagement, was not on a path to cessation.</li>
-        <li>Oklahoma's 128 completed appointments — across specialist, PCP, therapy, and maternal visits — represent 128 instances where a high-cost, high-utilizer member chose a scheduled appointment instead of an unplanned ED visit.</li>
+        <li>Texas at 88% is the program benchmark — it shows what this model delivers when the population is clearly defined and engagement has depth. Every other market is moving toward that number.</li>
+        <li>Michigan's 86% maternal visit completion significantly outperforms the national Medicaid postpartum average of ~62%. In a state where maternal health quality is a plan priority, this is a reportable outcome.</li>
+        <li>32 quit dates in Kentucky is a clinical commitment — not a goal set, not an intent captured. Each one represents a member on a path toward cessation who wasn't on that path before engagement.</li>
+        <li>Oklahoma's 128 completed appointments — across specialist, PCP, therapy, and maternal visits — represent 128 instances where a high-cost member chose a scheduled visit instead of an unplanned ED visit.</li>
       </ul>
     </div>
   </div>
 
-  <!-- Q4: IS THIS HELPING YOUR QUALITY AND COST GOALS -->
-  <div class="section-header">
-    <span class="section-label" style="background:#2e4456">Question 4</span>
-    <span class="section-title" style="font-style:italic;color:#6b7f8f">"Is this helping my quality, utilization, or cost goals?"</span>
-    <div class="section-divider"></div>
+  <!-- STAGE 5 -->
+  <div class="stage-header">
+    <div class="stage-num">5</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 5</div>
+      <div class="stage-title-text">Plan Value</div>
+      <div class="stage-desc-text">How member action translates to Aetna quality, utilization, and cost goals</div>
+    </div>
+    <div class="stage-divider"></div>
   </div>
 
-  <div style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.06)">
-    <p style="font-size:14px;color:#2e4456;line-height:1.7;margin-bottom:16px">
-      <strong>The visits being completed today are the quality measures that close tomorrow.</strong> This program is 7 months old. What's visible now are leading indicators — the member actions that, at scale and over time, move quality scores, reduce utilization costs, and support contract performance.
-    </p>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px" class="three-col">
+  <div class="stage-card">
+    <div class="stage-narrative"><strong>The visits being completed today are the quality measures that close tomorrow.</strong> This program is 7 months old. What's visible now are leading indicators — the member actions that, at scale and over time, move quality scores, reduce utilization costs, and protect plan performance.</div>
+    <div class="three-col" style="margin-bottom:20px">
       <div style="background:#f6f6f6;border-radius:8px;padding:18px;border-left:4px solid #d6661a">
-        <div style="font-size:11px;font-weight:700;color:#d6661a;text-transform:uppercase;margin-bottom:8px">Texas — Diabetic (HEDIS CDC)</div>
-        <div style="font-size:13px;color:#2e4456;line-height:1.6"><strong>88% of enrolled diabetic members</strong> completed a care visit. HEDIS CDC measures (A1C testing, blood pressure control, retinal exams) are closed when members show up. Pyx is getting them to show up.</div>
+        <div style="font-size:10px;font-weight:700;color:#d6661a;text-transform:uppercase;margin-bottom:8px">Texas · Diabetic · HEDIS CDC</div>
+        <div style="font-size:13px;color:#2e4456;line-height:1.6"><strong>88% of enrolled diabetic members</strong> completed a care visit. HEDIS CDC measures — A1C testing, blood pressure control, retinal exams — are closed when members show up. Pyx is getting them to show up.</div>
       </div>
       <div style="background:#f6f6f6;border-radius:8px;padding:18px;border-left:4px solid #29a4a2">
-        <div style="font-size:11px;font-weight:700;color:#29a4a2;text-transform:uppercase;margin-bottom:8px">Michigan — Maternal (HEDIS Postpartum)</div>
-        <div style="font-size:13px;color:#2e4456;line-height:1.6"><strong>86% of maternal members</strong> completed a maternal visit. Postpartum care completion is a direct HEDIS measure. Each completed visit is a reportable quality outcome for Aetna MI.</div>
+        <div style="font-size:10px;font-weight:700;color:#29a4a2;text-transform:uppercase;margin-bottom:8px">Michigan · Maternal · HEDIS Postpartum</div>
+        <div style="font-size:13px;color:#2e4456;line-height:1.6"><strong>86% of maternal members</strong> completed a maternal care visit — a direct HEDIS measure. Each completed visit is a reportable quality outcome for Aetna MI, in a population where that visit is too often missed.</div>
       </div>
       <div style="background:#f6f6f6;border-radius:8px;padding:18px;border-left:4px solid #0076bf">
-        <div style="font-size:11px;font-weight:700;color:#0076bf;text-transform:uppercase;margin-bottom:8px">OK / FL / IL — BH (HEDIS FUH/FUM)</div>
-        <div style="font-size:13px;color:#2e4456;line-height:1.6"><strong>56–64% of BH members</strong> completed a care visit. Follow-up after hospitalization and mental health engagement are HEDIS BH quality measures. Pyx is building the engagement layer that makes those visits happen.</div>
+        <div style="font-size:10px;font-weight:700;color:#0076bf;text-transform:uppercase;margin-bottom:8px">FL · OK · IL · BH · HEDIS FUH/FUM</div>
+        <div style="font-size:13px;color:#2e4456;line-height:1.6"><strong>56–64% of BH members</strong> completed a care visit. Follow-up after hospitalization and sustained BH engagement are HEDIS measures. Pyx builds the engagement layer that makes those visits possible.</div>
       </div>
     </div>
-
     <div class="roi-grid">
       <div class="roi-tile teal"><div class="big">10%</div><div class="desc">Estimated reduction in physician visits and ED use from sustained engagement programs (evidence-based)</div></div>
       <div class="roi-tile blue"><div class="big">$2,400</div><div class="desc">Per person per year savings from avoided physician visits and ED use — for the high-utilizer cohort Pyx is engaging</div></div>
-      <div class="roi-tile slate"><div class="big">42%</div><div class="desc">Of maternal health costs are non-medical — largely mental health related and addressable through navigation</div></div>
-      <div class="roi-tile green"><div class="big">13.72x</div><div class="desc">Estimated return on programs that improve social connection and loneliness — driving the sustained engagement model</div></div>
+      <div class="roi-tile slate"><div class="big">42%</div><div class="desc">Of maternal health costs are non-medical — largely mental health related and directly addressable through care navigation</div></div>
+      <div class="roi-tile green"><div class="big">13.72x</div><div class="desc">Estimated return on programs that improve social connection and loneliness — the foundation of sustained engagement</div></div>
     </div>
-
-    <div class="tp-block" id="tp-vv-quality">
-      <h4>Talking Points — Quality and Cost Impact</h4>
+    <div class="tp-block" id="tp-stage5">
+      <h4>Talking Points — Plan Value</h4>
       <ul>
-        <li>The program is 7 months old. Quality measure movement takes 12–24 months to show in state ratings. What we're showing you today are the leading indicators — the member actions that precede quality improvement. Texas's 88% diabetic activation is the early signal. The HEDIS movement follows.</li>
-        <li>The $2,400 per-person per-year savings estimate is grounded in published research on sustained engagement programs for high-utilizer populations. Oklahoma is the market where this estimate is most directly applicable — we are engaging the high-cost/high-utilizer cohort at 91% direct care team contact rates and getting 56% of them to complete care. That's cost avoidance starting to materialize.</li>
-        <li>42% of maternal health costs are non-medical — mental health related. Louisiana and Michigan are the programs designed to address exactly this. The depth of engagement ($179 and $177 average per member) reflects the level of navigation support these members need and are receiving.</li>
-        <li>The ROI framing is not a promise — it's a trajectory. The program is on a path to delivering measurable quality and cost value in the back half of the contract term. The data today is the evidence base for that path.</li>
+        <li>Quality measure movement takes 12–24 months to show in state ratings. What we're showing today are the leading indicators — the member actions that precede measurable improvement. Texas's 88% diabetic activation is the early signal. The HEDIS movement follows.</li>
+        <li>The $2,400 per-person per-year savings figure is grounded in published research on sustained engagement programs for high-utilizer populations. Oklahoma is where this is most directly applicable: 91% direct care team engagement in a high-cost cohort, with 56% completing care. That's cost avoidance beginning to materialize.</li>
+        <li>42% of maternal health costs are non-medical — mental health related. Louisiana and Michigan are designed to address exactly this. The depth of engagement in those markets reflects the level of navigation support these members need and are receiving.</li>
+        <li>This is not a promise — it's a trajectory. The program is on a clear path to delivering measurable quality and utilization value in the back half of the contract term. Today's data is the evidence base for that path.</li>
       </ul>
     </div>
   </div>
 
   <!-- WHAT'S NEXT -->
-  <div class="section-header">
-    <span class="section-label" style="background:#49a601">What's Next</span>
-    <span class="section-title">Where we go from here</span>
-    <div class="section-divider"></div>
+  <div class="stage-header">
+    <div class="stage-num" style="background:#2e4456">→</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag" style="color:#2e4456">Opportunity Ahead</div>
+      <div class="stage-title-text">Significant value remains to be unlocked</div>
+    </div>
+    <div class="stage-divider"></div>
   </div>
 
-  <div style="background:#2e4456;border-radius:12px;padding:28px;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px" class="three-col">
+  <div style="background:#2e4456;border-radius:12px;padding:28px;margin-bottom:24px" class="three-col">
     <div>
-      <div style="color:#87d001;font-size:11px;font-weight:700;margin-bottom:8px;text-transform:uppercase">Activation Growth</div>
-      <div style="color:#fff;font-size:13px;line-height:1.6">44% of enrolled members across BH markets have not yet activated. That's the engagement pipeline — members in active care relationships moving toward their first care action. Activation rates will climb through the back half of the contract.</div>
+      <div style="color:#87d001;font-size:11px;font-weight:700;margin-bottom:8px;text-transform:uppercase">Activation Pipeline</div>
+      <div style="color:#fff;font-size:13px;line-height:1.6">44% of enrolled BH members have not yet activated. These are members in active care relationships — the engagement is happening, the barrier identification is underway. Activation follows. The pipeline is full.</div>
     </div>
     <div>
-      <div style="color:#87d001;font-size:11px;font-weight:700;margin-bottom:8px;text-transform:uppercase">Quality Data</div>
-      <div style="color:#fff;font-size:13px;line-height:1.6">As the program crosses the 6-month mark for early cohorts, we will begin connecting engagement and activation data to quality measure trends — bringing the leading indicators in this review into direct alignment with HEDIS performance metrics.</div>
+      <div style="color:#87d001;font-size:11px;font-weight:700;margin-bottom:8px;text-transform:uppercase">Quality Measure Alignment</div>
+      <div style="color:#fff;font-size:13px;line-height:1.6">As early-cohort members cross 6 months of engagement, we will begin connecting activation data to quality measure trends — bringing the leading indicators in this review into direct alignment with HEDIS performance data.</div>
     </div>
     <div>
-      <div style="color:#87d001;font-size:11px;font-weight:700;margin-bottom:8px;text-transform:uppercase">Expansion Opportunity</div>
-      <div style="color:#fff;font-size:13px;line-height:1.6">Illinois has the largest eligibility pool in the program (176K) at 543 enrolled. Oklahoma's food box pilot — 51 self-onboardings from 1,000 letters, zero outbound calls — is a replicable reach model for never-engaged populations across all markets.</div>
+      <div style="color:#87d001;font-size:11px;font-weight:700;margin-bottom:8px;text-transform:uppercase">Reach Expansion</div>
+      <div style="color:#fff;font-size:13px;line-height:1.6">Illinois has the largest eligibility pool (176K) with the most headroom. Oklahoma's food box pilot — 51 self-onboardings from 1,000 letters, zero outbound calls — is a replicable reach model for never-engaged populations across all markets.</div>
     </div>
   </div>
 
   <div class="story-placeholder">
     <div class="icon">◎</div>
     <h4>Member Stories — Placeholders</h4>
-    <p>Add 2–3 de-identified member stories here representing the program arc: one member who reached the plan goal in each program type (BH access, maternal completion, diabetic care, cessation). Stories should illustrate the barrier → engagement → action → outcome journey in the member's own words where possible.</p>
+    <p>Add 2–3 de-identified member stories illustrating the full arc: barrier identified → engagement sustained → care action completed → outcome for the plan. One story per program type (BH, maternal, diabetic/cessation).</p>
   </div>
 
   <div class="footer">Pyx Health &times; Aetna Medicaid Mid-Year Review &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; Confidential</div>
 </div>
-
-<!-- ======================== NATIONAL ======================== -->
-<div class="page" id="page-national">
-
-  <div class="value-anchor">
-    <svg class="va-arrow" viewBox="0 0 48 48" fill="none">
-      <path d="M8 24L28 8l4 4-14 12 14 12-4 4z" fill="#49a601" opacity=".4"/>
-      <path d="M20 24L40 8l4 4-14 12 14 12-4 4z" fill="#49a601"/>
-    </svg>
-    <div class="va-text">
-      <h2>Members activated. Barriers removed. <strong>Plans protected.</strong></h2>
-      <p>Across 8 markets, Pyx Health is reaching Aetna Medicaid members where traditional outreach stops — converting social and behavioral barriers into completed care. Every member enrolled is a relationship the plan now owns, with the data to prove it matters.</p>
-    </div>
-  </div>
-
-  <div class="tp-block" id="tp-national-anchor">
-    <h4>Talking Points — Opening Frame</h4>
-    <ul>
-      <li>This review covers 7 months of the Navigate program — from November 2025 through May 2026 — across all 8 markets.</li>
-      <li>The central question we're answering today: are the members Aetna most needs to reach actually being reached, and are they taking action?</li>
-      <li>The answer across the portfolio is yes — and the data we'll walk through connects what Pyx does to outcomes Aetna cares about: care access, quality performance, and cost risk reduction.</li>
-    </ul>
-  </div>
-
-  <div class="section-header">
-    <span class="section-label">Program Snapshot</span>
-    <span class="section-title">7 Months In — Navigate Program Performance</span>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="kpi-grid" id="national-kpis"></div>
-
-  <div class="tp-block" id="tp-national-kpis">
-    <h4>Talking Points — Program KPIs</h4>
-    <ul>
-      <li>4,424 enrolled members means 4,424 individual care relationships established — not outreach attempts, not contacts. Enrolled members who have spoken with a Pyx care team member.</li>
-      <li>$802,760 billed to date reflects real program delivery. On an annualized basis, this program is on pace to exceed $1.2M in billable services across the portfolio.</li>
-      <li>2.5 average months of engagement means the program isn't transactional — members are staying in. That sustained connection is what enables barrier identification and care activation.</li>
-      <li>8,909 billable calls is a floor, not a ceiling — these are direct care team interactions, not automated touches.</li>
-    </ul>
-  </div>
-
-  <div class="section-header">
-    <span class="section-label">Value Journey</span>
-    <span class="section-title">How Pyx Health moves members from outreach to outcomes</span>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="journey-track">
-    <div class="journey-phases">
-      <div class="phase">
-        <div class="phase-num">1</div>
-        <div class="phase-title">Launch & Readiness</div>
-        <div class="phase-desc">Market setup, file exchange, eligibility lists activated</div>
-        <div class="phase-status">Complete — all 8 markets</div>
-      </div>
-      <div class="phase">
-        <div class="phase-num">2</div>
-        <div class="phase-title">Reach & Response</div>
-        <div class="phase-desc">Outreach, welcome calls, member enrollment into program</div>
-        <div class="phase-status">Active — 4,424 enrolled</div>
-      </div>
-      <div class="phase">
-        <div class="phase-num">3</div>
-        <div class="phase-title">Deep Engagement</div>
-        <div class="phase-desc">Recurring care team contact, barrier screening, needs identification</div>
-        <div class="phase-status">Active — ongoing</div>
-      </div>
-      <div class="phase">
-        <div class="phase-num">4</div>
-        <div class="phase-title">Activation</div>
-        <div class="phase-desc">Care navigation, appointment completion, barrier resolution</div>
-        <div class="phase-status">In progress per market</div>
-      </div>
-      <div class="phase">
-        <div class="phase-num">5</div>
-        <div class="phase-title">Impact & Plan Value</div>
-        <div class="phase-desc">Quality indicators, cost avoidance, contract renewal evidence</div>
-        <div class="phase-status">Building now</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tp-block" id="tp-journey">
-    <h4>Talking Points — Value Journey</h4>
-    <ul>
-      <li>This framework is how we think about and report on program maturity. Every market is somewhere on this journey — and no market moves backwards.</li>
-      <li>Stages 1–3 are largely complete across the portfolio. Stage 4 (Activation) is where we'll spend most of today — members attending visits, completing care, removing barriers.</li>
-      <li>Stage 5 is the "so what" for Aetna: quality metric movement, HEDIS gap closure, cost avoidance. The data in Stages 3 and 4 are the leading indicators that Stage 5 is coming.</li>
-    </ul>
-  </div>
-
-  <div class="section-header">
-    <span class="section-label">Market Snapshot</span>
-    <span class="section-title">All 8 markets at a glance</span>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="market-grid" id="national-market-grid"></div>
-
-  <div class="tp-block" id="tp-market-snapshot">
-    <h4>Talking Points — Market Snapshot</h4>
-    <ul>
-      <li>Each market was designed around a different plan priority — BH access, chronic condition management, maternal health, cessation. The program structure follows what you told us you needed in each state.</li>
-      <li>Florida leads on revenue attainment at 76% to goal — also the largest enrolled market by count. Illinois has the highest revenue goal ($246K) and room to grow at 48%.</li>
-      <li>Texas has the highest activation rate in the portfolio (88%) — that's diabetic members completing care, which connects directly to HEDIS chronic condition measures.</li>
-      <li>Oklahoma's standout story: 50% conversion rate on eligibility — program is pulling in the right members, with 56% of high-cost/high-utilizer members completing a visit.</li>
-    </ul>
-  </div>
-
-  <div class="section-header">
-    <span class="section-label">Enrollment</span>
-    <span class="section-title">New member enrollment by month — all markets</span>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="chart-wrap">
-    <div class="chart-title">New Members Enrolled per Month (Nov 2025 – May 2026 partial)</div>
-    <div class="bar-chart" id="enrollment-chart"></div>
-    <p style="font-size:11px;color:#aab5c0;margin-top:12px">* May reflects 7 days of enrollment (through May 7, 2026). Salesforce Health Cloud migration completed 4/22/2026.</p>
-  </div>
-
-  <div class="section-header">
-    <span class="section-label">Revenue</span>
-    <span class="section-title">Program revenue to date — by market</span>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="data-note"><strong>Billing note:</strong> Prior billing for 11/1/25–3/31/26 was reconciled to invoiced amounts. Early April dashboard values have since been fully aligned. All totals through 5/7/2026 are accurate.</div>
-
-  <div class="billing-table">
-    <table class="data-table" id="revenue-table"></table>
-  </div>
-
-  <div class="two-col">
-    <div class="chart-wrap">
-      <div class="chart-title">Revenue Composition — Welcome vs. Ongoing</div>
-      <div style="display:flex;gap:16px;align-items:center;margin-top:12px">
-        <div style="flex:1">
-          <div style="font-size:11px;color:#6b7f8f;margin-bottom:4px">Welcome Engagement</div>
-          <div style="font-size:24px;font-weight:700;color:#2e4456">$369,832</div>
-          <div style="font-size:11px;color:#8a9aab">46% of total — first-touch member connection</div>
-        </div>
-        <div style="flex:1">
-          <div style="font-size:11px;color:#6b7f8f;margin-bottom:4px">Ongoing Engagement</div>
-          <div style="font-size:24px;font-weight:700;color:#49a601">$432,928</div>
-          <div style="font-size:11px;color:#49a601;font-weight:600">54% of total — sustained relationship billing now leads</div>
-        </div>
-      </div>
-      <div class="tp-block" id="tp-revenue-comp">
-        <h4>Talking Points — Revenue Composition</h4>
-        <ul>
-          <li>The shift from welcome-dominant to ongoing-dominant billing is a signal that this program has depth. Members aren't just being welcomed — they're staying connected long enough to bill multiple months.</li>
-          <li>Ongoing charges reflect members who have had at least 2 active engagement months — that's the cohort most likely to activate into care.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="chart-wrap">
-      <div class="chart-title">Months of Billable Service Distribution</div>
-      <div id="months-chart" style="margin-top:12px"></div>
-      <div class="tp-block" id="tp-months">
-        <h4>Talking Points — Engagement Duration</h4>
-        <ul>
-          <li>49% of enrolled members are still in month 1 — the program is actively growing. But 51% have moved beyond month 1, indicating a maturing engaged cohort.</li>
-          <li>165 members have sustained 5+ months of engagement — those are the highest-touch, highest-need members. Exactly the population Aetna designed this program to serve.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-</div>
-<!-- END NATIONAL -->
 
 <!-- ======================== FLORIDA ======================== -->
 <div class="page" id="page-fl">
@@ -617,18 +526,17 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
         <div class="hero-kpi-lbl">Enrolled Members</div>
       </div>
       <div class="hero-kpi">
-        <div class="hero-kpi-val">76%</div>
-        <div class="hero-kpi-lbl">Revenue to Goal</div>
+        <div class="hero-kpi-val">56%</div>
+        <div class="hero-kpi-lbl">Activation Rate</div>
       </div>
     </div>
   </div>
 
   <div class="kpi-grid">
     <div class="kpi green"><div class="kpi-lbl">Enrolled Members</div><div class="kpi-val">673</div><div class="kpi-ctx">Largest enrolled market in program</div><div class="kpi-why">Every enrolled member is a BH relationship Aetna now owns — connected, screened, and navigated toward care.</div></div>
-    <div class="kpi blue"><div class="kpi-lbl">Eligibility Pool</div><div class="kpi-val">54,442</div><div class="kpi-ctx">10.3% eligibility conversion rate</div><div class="kpi-why">Headroom remains — 10% conversion with a 54K pool means continued enrollment opportunity without new contract spend.</div></div>
+    <div class="kpi blue"><div class="kpi-lbl">Eligibility Pool</div><div class="kpi-val">54,442</div><div class="kpi-ctx">10.3% eligibility conversion rate</div><div class="kpi-why">Headroom remains — 10% conversion with a 54K pool means continued enrollment opportunity within the existing contract.</div></div>
     <div class="kpi teal"><div class="kpi-lbl">Outreach Conversion</div><div class="kpi-val">22.5%</div><div class="kpi-ctx">Of members contacted, 22.5% enrolled</div><div class="kpi-why">For a BH population, 22.5% is strong — this is a population that historically doesn't respond to traditional outreach.</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Revenue to Goal</div><div class="kpi-val">76%</div><div class="kpi-ctx">Highest % to goal in the program</div><div class="kpi-why">FL leads the portfolio on revenue attainment — $109K billed against a $143K goal with 7 months of program still running.</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$177</div><div class="kpi-ctx">Reflects sustained multi-month engagement</div><div class="kpi-why">Higher per-member charge = longer engagement duration = more barrier identification and care activation per member.</div></div>
+    <div class="kpi orange"><div class="kpi-lbl">Activation Rate</div><div class="kpi-val">56%</div><div class="kpi-ctx">More than 1 in 2 enrolled members took a care action</div><div class="kpi-why">BH diagnoses correlate with higher ED utilization and missed preventive care — each completed visit reduces the clinical and cost risk the plan is trying to address.</div></div>
   </div>
 
   <div class="section-header"><span class="section-label">Activation</span><span class="section-title">Members completing care</span><div class="section-divider"></div></div>
@@ -658,13 +566,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </div>
   </div>
 
-  <div class="section-header"><span class="section-label">Revenue</span><span class="section-title">Billing performance</span><div class="section-divider"></div></div>
-  <div class="kpi-grid">
-    <div class="kpi green"><div class="kpi-lbl">Revenue Goal</div><div class="kpi-val">$143,420</div><div class="kpi-ctx">Full-term contract target</div></div>
-    <div class="kpi green"><div class="kpi-lbl">Attained</div><div class="kpi-val">76%</div><div class="kpi-ctx">~$109K billed to date</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$177</div><div class="kpi-ctx">$70/member/month contract rate</div></div>
-  </div>
-
   <div class="footer">Pyx Health &times; Aetna Medicaid Mid-Year Review &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; Confidential</div>
 </div>
 
@@ -678,7 +579,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </div>
     <div class="hero-kpis">
       <div class="hero-kpi"><div class="hero-kpi-val">598</div><div class="hero-kpi-lbl">Enrolled Members</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-val">51%</div><div class="hero-kpi-lbl">Revenue to Goal</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-val">43%</div><div class="hero-kpi-lbl">Activation Rate</div></div>
     </div>
   </div>
 
@@ -686,7 +587,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     <div class="kpi purple"><div class="kpi-lbl">Enrolled Members</div><div class="kpi-val">598</div><div class="kpi-ctx">Strong reach into tobacco-using Medicaid population</div><div class="kpi-why">Tobacco use is the leading preventable driver of COPD and cardiovascular risk — these enrollments are Aetna's first line of cost prevention for this cohort.</div></div>
     <div class="kpi blue"><div class="kpi-lbl">Eligibility Pool</div><div class="kpi-val">107,116</div><div class="kpi-ctx">16.0% conversion from eligibility list</div><div class="kpi-why">Kentucky has the largest eligibility pool in the program. As enrollment ramp continues, significant headroom remains.</div></div>
     <div class="kpi teal"><div class="kpi-lbl">Outreach Conversion</div><div class="kpi-val">29.8%</div><div class="kpi-ctx">Of members contacted, nearly 1 in 3 enrolled</div><div class="kpi-why">Nearly 30% conversion on a smoking cessation program is strong — members are motivated when reached through the right channel at the right time.</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Revenue to Goal</div><div class="kpi-val">51%</div><div class="kpi-ctx">Midpoint on a $195K target</div><div class="kpi-why">Runway ahead — KY's goal is the highest in the program at $195K. With 598 enrolled and growing, the back half of the contract period is where this number moves.</div></div>
+    <div class="kpi orange"><div class="kpi-lbl">Activation Rate</div><div class="kpi-val">43%</div><div class="kpi-ctx">Including 32 documented quit dates</div><div class="kpi-why">43% activation with 32 documented quit dates is a clinical behavior-change outcome — not an engagement metric. Each quit date represents a member committed to cessation, with measurable HEDIS and cost implications.</div></div>
   </div>
 
   <div class="section-header"><span class="section-label">Activation</span><span class="section-title">Members taking steps toward cessation</span><div class="section-divider"></div></div>
@@ -716,13 +617,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </div>
   </div>
 
-  <div class="section-header"><span class="section-label">Revenue</span><span class="section-title">Billing performance</span><div class="section-divider"></div></div>
-  <div class="kpi-grid">
-    <div class="kpi green"><div class="kpi-lbl">Revenue Goal</div><div class="kpi-val">$194,995</div><div class="kpi-ctx">Highest goal in the program</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Attained</div><div class="kpi-val">51%</div><div class="kpi-ctx">~$99K billed to date</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$172</div><div class="kpi-ctx">Reflects growing engagement duration</div></div>
-  </div>
-
   <div class="footer">Pyx Health &times; Aetna Medicaid Mid-Year Review &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; Confidential</div>
 </div>
 
@@ -744,8 +638,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     <div class="kpi green"><div class="kpi-lbl">Enrolled Members</div><div class="kpi-val">637</div><div class="kpi-ctx">559 enrolled through April; 78 added in May</div><div class="kpi-why">OK's enrollment reflects precision targeting — 66% of enrolled members carry a target diagnosis, the highest diagnostic concentration in the program.</div></div>
     <div class="kpi blue"><div class="kpi-lbl">Eligibility Conversion</div><div class="kpi-val">50%</div><div class="kpi-ctx">Of 76,336 eligible members — 50% converted</div><div class="kpi-why">Program-best conversion rate. This means Pyx is reaching and enrolling half of all eligible members the plan identified — that's population penetration, not sample outreach.</div></div>
     <div class="kpi teal"><div class="kpi-lbl">Outreach Conversion</div><div class="kpi-val">75%</div><div class="kpi-ctx">Of members contacted, 3 in 4 enrolled</div><div class="kpi-why">75% is the strongest member response rate in the program — a reflection of both the precision of the member selection and the effectiveness of the outreach model.</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Revenue to Goal</div><div class="kpi-val">54%</div><div class="kpi-ctx">~$93K of $173K goal</div><div class="kpi-why">Program still in active growth. With the strongest conversion rates in the portfolio, OK has significant runway to close the gap to goal.</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$154</div><div class="kpi-ctx">Lower due to newer cohort mix</div><div class="kpi-why">Lower per-member average reflects a program that is still onboarding — as members age into Month 2+, this number rises and ongoing charges compound.</div></div>
+    <div class="kpi orange"><div class="kpi-lbl">Activation Rate</div><div class="kpi-val">56%</div><div class="kpi-ctx">High-utilizer members completing priority care visits</div><div class="kpi-why">More than 1 in 2 of the highest-cost, most complex members in the OK Medicaid population have completed a preventive, BH, or follow-up visit through Pyx navigation.</div></div>
   </div>
 
   <div class="section-header"><span class="section-label">Engagement Depth</span><span class="section-title">How Oklahoma members are connecting with care teams</span><div class="section-divider"></div></div>
@@ -865,9 +758,9 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
 
   <div class="kpi-grid">
     <div class="kpi green"><div class="kpi-lbl">Activation Rate</div><div class="kpi-val">88%</div><div class="kpi-ctx">Highest in the program — program-wide benchmark</div><div class="kpi-why">88% activation means nearly 9 in 10 enrolled diabetic members have taken a care action. This is the clearest signal in the portfolio that sustained engagement drives behavior change.</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Revenue to Goal</div><div class="kpi-val">72%</div><div class="kpi-ctx">~$140K of $195K goal</div><div class="kpi-why">Second-highest revenue attainment in the program, on the highest shared goal tier with Kentucky. TX is delivering on both the activation and the commercial side.</div></div>
     <div class="kpi blue"><div class="kpi-lbl">Outreach Conversion</div><div class="kpi-val">41.9%</div><div class="kpi-ctx">Of members contacted</div><div class="kpi-why">40%+ outreach conversion for a diabetic management program is strong — these are members with complex needs who are choosing to engage.</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$175</div><div class="kpi-ctx">Reflecting sustained multi-month engagement</div></div>
+    <div class="kpi orange"><div class="kpi-lbl">Enrolled Members</div><div class="kpi-val">545</div><div class="kpi-ctx">Diabetic population — focused, high-need cohort</div><div class="kpi-why">TX's focused population and clear clinical target (diabetes management) gives the program a clear line of sight between member enrollment and HEDIS chronic condition measure closure.</div></div>
+    <div class="kpi teal"><div class="kpi-lbl">Eligibility Pool</div><div class="kpi-val">26,726</div><div class="kpi-ctx">17.6% eligibility conversion</div><div class="kpi-why">TX has the most concentrated eligibility pool in the program — 17.6% conversion with 88% activation means the program is finding, enrolling, and activating the right members.</div></div>
   </div>
 
   <div class="section-header"><span class="section-label">Activation</span><span class="section-title">Texas — program-wide leader in care activation</span><div class="section-divider"></div></div>
@@ -895,13 +788,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </div>
   </div>
 
-  <div class="section-header"><span class="section-label">Revenue</span><span class="section-title">Billing performance</span><div class="section-divider"></div></div>
-  <div class="kpi-grid">
-    <div class="kpi green"><div class="kpi-lbl">Revenue Goal</div><div class="kpi-val">$194,995</div><div class="kpi-ctx">Shared top-tier goal with KY</div></div>
-    <div class="kpi green"><div class="kpi-lbl">Attained</div><div class="kpi-val">72%</div><div class="kpi-ctx">~$140K billed to date</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$175</div><div class="kpi-ctx">Reflects sustained engagement duration</div></div>
-  </div>
-
   <div class="footer">Pyx Health &times; Aetna Medicaid Mid-Year Review &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; Confidential</div>
 </div>
 
@@ -923,7 +809,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     <div class="kpi green"><div class="kpi-lbl">Activation Rate</div><div class="kpi-val">64%</div><div class="kpi-ctx">Above-program-average activation</div><div class="kpi-why">64% of enrolled BH members have completed a care action — well above the portfolio midpoint and closing toward TX's benchmark performance.</div></div>
     <div class="kpi blue"><div class="kpi-lbl">Eligibility Pool</div><div class="kpi-val">176,595</div><div class="kpi-ctx">Largest eligibility pool in the program</div><div class="kpi-why">IL has the most headroom of any market. 543 enrolled against 176K eligible = significant upside opportunity within the existing contract structure.</div></div>
     <div class="kpi teal"><div class="kpi-lbl">Outreach Conversion</div><div class="kpi-val">38.7%</div><div class="kpi-ctx">Of members contacted</div><div class="kpi-why">38% conversion is a strong response rate — IL members are responding to Pyx outreach at nearly twice the rate suggested by the raw eligibility-to-enrolled ratio.</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Revenue to Goal</div><div class="kpi-val">48%</div><div class="kpi-ctx">~$118K of $247K goal</div><div class="kpi-why">IL carries the highest revenue goal in the program ($247K). 48% attainment with enrollment still growing means the back half of the contract term is where IL's story gets told.</div></div>
+    <div class="kpi orange"><div class="kpi-lbl">Enrolled Members</div><div class="kpi-val">543</div><div class="kpi-ctx">BH population — largest eligibility pool in program</div><div class="kpi-why">With 543 enrolled and the largest pool to draw from, IL is the market with the most room to grow. Enrollment is an active lever — the activation story here gets stronger as the cohort matures.</div></div>
     <div class="kpi slate"><div class="kpi-lbl">OB Rate (Post-SF)</div><div class="kpi-val">23.5%</div><div class="kpi-ctx">Second-highest outbound response rate</div></div>
   </div>
 
@@ -939,7 +825,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
         <ul>
           <li>64% positions IL in the top half of the program on activation, above FL (56%) and OK (56%), behind TX (88%) and ahead of KY (43%).</li>
           <li>Illinois's BH population is the most underserved in the state for access to mental health providers — Pyx's navigation model is designed to work in exactly this kind of constrained environment.</li>
-          <li>With 176K eligible members and 543 enrolled, IL is a growth story as much as a performance story. The revenue and activation opportunity here is the largest in the portfolio.</li>
+          <li>With 176K eligible members and 543 enrolled, IL is a growth story as much as a performance story. The activation opportunity here is the largest in the portfolio — and enrollment is the lever that unlocks it.</li>
         </ul>
       </div>
     </div>
@@ -950,13 +836,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
         <p>Add a de-identified Illinois member story. Suggested focus: BH member who accessed therapy or counseling services for the first time after Pyx care navigation removed access barriers.</p>
       </div>
     </div>
-  </div>
-
-  <div class="section-header"><span class="section-label">Revenue</span><span class="section-title">Billing performance — largest goal, significant runway</span><div class="section-divider"></div></div>
-  <div class="kpi-grid">
-    <div class="kpi green"><div class="kpi-lbl">Revenue Goal</div><div class="kpi-val">$246,684</div><div class="kpi-ctx">Highest revenue goal in the program</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Attained</div><div class="kpi-val">48%</div><div class="kpi-ctx">~$118K billed to date</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$173</div><div class="kpi-ctx">Consistent with program average</div></div>
   </div>
 
   <div class="footer">Pyx Health &times; Aetna Medicaid Mid-Year Review &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; Confidential</div>
@@ -972,7 +851,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </div>
     <div class="hero-kpis">
       <div class="hero-kpi"><div class="hero-kpi-val">502</div><div class="hero-kpi-lbl">Enrolled Members</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-val">57%</div><div class="hero-kpi-lbl">Revenue to Goal</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-val">43.4%</div><div class="hero-kpi-lbl">Outreach Conversion</div></div>
     </div>
   </div>
 
@@ -980,8 +859,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     <div class="kpi teal"><div class="kpi-lbl">Enrolled Members</div><div class="kpi-val">502</div><div class="kpi-ctx">Maternal population with high SDOH burden</div><div class="kpi-why">Each enrolled maternal member is a plan relationship that spans the highest-risk period of healthcare — prenatal through postpartum. Access gaps in this window carry both quality and cost consequences.</div></div>
     <div class="kpi blue"><div class="kpi-lbl">Eligibility Pool</div><div class="kpi-val">93,694</div><div class="kpi-ctx">22.8% conversion from eligibility list</div><div class="kpi-why">Nearly 1 in 4 eligible maternal members enrolled. LA's outreach is reaching a population that is often difficult to engage through standard plan communication.</div></div>
     <div class="kpi teal"><div class="kpi-lbl">Outreach Conversion</div><div class="kpi-val">43.4%</div><div class="kpi-ctx">Of members contacted</div><div class="kpi-why">Maternal members respond to support-oriented outreach at higher rates than general Medicaid populations — reflecting the unmet need this program is designed to address.</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Revenue to Goal</div><div class="kpi-val">57%</div><div class="kpi-ctx">~$78K of $137K goal</div></div>
-    <div class="kpi green"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$179</div><div class="kpi-ctx">Highest avg charge in the program</div><div class="kpi-why">LA's $179/member average — highest in the portfolio — reflects deep, sustained engagement. Maternal members with high SDOH needs are generating the deepest care relationships.</div></div>
+    <div class="kpi green"><div class="kpi-lbl">Engagement Depth</div><div class="kpi-val">Deepest</div><div class="kpi-ctx">Highest sustained engagement in the portfolio</div><div class="kpi-why">LA maternal members with high SDOH needs are generating the deepest care relationships in the program — reflecting how much navigation support this population requires and receives.</div></div>
   </div>
 
   <div class="section-header"><span class="section-label">Activation</span><span class="section-title">Maternal members completing care</span><div class="section-divider"></div></div>
@@ -1011,13 +889,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </div>
   </div>
 
-  <div class="section-header"><span class="section-label">Revenue</span><span class="section-title">Billing performance</span><div class="section-divider"></div></div>
-  <div class="kpi-grid">
-    <div class="kpi green"><div class="kpi-lbl">Revenue Goal</div><div class="kpi-val">$136,591</div><div class="kpi-ctx">Maternal program goal</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Attained</div><div class="kpi-val">57%</div><div class="kpi-ctx">~$78K billed to date</div></div>
-    <div class="kpi green"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$179</div><div class="kpi-ctx">Highest in the program</div></div>
-  </div>
-
   <div class="footer">Pyx Health &times; Aetna Medicaid Mid-Year Review &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; Confidential</div>
 </div>
 
@@ -1038,9 +909,8 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
   <div class="kpi-grid">
     <div class="kpi green"><div class="kpi-lbl">Activation Rate</div><div class="kpi-val">56%</div><div class="kpi-ctx">Of enrolled members completed care</div><div class="kpi-why">56% overall activation in a maternal population — the cohort with the highest risk of care avoidance due to SDOH barriers — is meaningful progress toward the plan's prenatal/postpartum goals.</div></div>
     <div class="kpi teal"><div class="kpi-lbl">Maternal Visit Completion</div><div class="kpi-val">86%</div><div class="kpi-ctx">Of maternal members completed a visit</div><div class="kpi-why">86% of Pyx-enrolled maternal members in MI completed a maternal care visit — a direct HEDIS-connected outcome and a signal that the program is closing the access gap the plan identified.</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Revenue to Goal</div><div class="kpi-val">67%</div><div class="kpi-ctx">~$96K of $143K goal</div><div class="kpi-why">MI is third-highest in revenue attainment across the program — consistent billing reflects consistent engagement.</div></div>
     <div class="kpi blue"><div class="kpi-lbl">Outreach Conversion</div><div class="kpi-val">47.4%</div><div class="kpi-ctx">Of members contacted — strong response</div><div class="kpi-why">Nearly 1 in 2 maternal members contacted enrolled. For a population managing the demands of pregnancy alongside Medicaid-related access constraints, this response rate reflects real unmet need being answered.</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$177</div><div class="kpi-ctx">Reflecting sustained engagement</div></div>
+    <div class="kpi orange"><div class="kpi-lbl">Enrolled Members</div><div class="kpi-val">469</div><div class="kpi-ctx">Maternal Medicaid population — 27,892 eligible</div><div class="kpi-why">MI's focused eligibility pool (27K) with 14.5% conversion and 86% maternal visit completion creates a clear, measurable line between enrollment and HEDIS postpartum measure performance.</div></div>
   </div>
 
   <div class="section-header"><span class="section-label">Activation</span><span class="section-title">Maternal members completing the care journey</span><div class="section-divider"></div></div>
@@ -1068,13 +938,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </div>
   </div>
 
-  <div class="section-header"><span class="section-label">Revenue</span><span class="section-title">Billing performance</span><div class="section-divider"></div></div>
-  <div class="kpi-grid">
-    <div class="kpi green"><div class="kpi-lbl">Revenue Goal</div><div class="kpi-val">$143,420</div><div class="kpi-ctx">Maternal program goal</div></div>
-    <div class="kpi green"><div class="kpi-lbl">Attained</div><div class="kpi-val">67%</div><div class="kpi-ctx">~$96K billed to date</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$177</div></div>
-  </div>
-
   <div class="footer">Pyx Health &times; Aetna Medicaid Mid-Year Review &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; Confidential</div>
 </div>
 
@@ -1088,15 +951,14 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     </div>
     <div class="hero-kpis">
       <div class="hero-kpi"><div class="hero-kpi-val">458</div><div class="hero-kpi-lbl">Enrolled Members</div></div>
-      <div class="hero-kpi"><div class="hero-kpi-val">58%</div><div class="hero-kpi-lbl">Revenue to Goal</div></div>
+      <div class="hero-kpi"><div class="hero-kpi-val">205K</div><div class="hero-kpi-lbl">Eligibility Pool</div></div>
     </div>
   </div>
 
   <div class="kpi-grid">
     <div class="kpi green"><div class="kpi-lbl">Enrolled Members</div><div class="kpi-val">458</div><div class="kpi-ctx">Strong enrollment into large eligibility pool</div><div class="kpi-why">458 members enrolled into an actively growing program — AZ has the largest eligibility base (205K) and represents the single largest long-term growth opportunity in the portfolio.</div></div>
     <div class="kpi blue"><div class="kpi-lbl">Eligibility Pool</div><div class="kpi-val">205,644</div><div class="kpi-ctx">Largest eligibility pool in the program</div><div class="kpi-why">AZ's Mercy Care population represents 205K eligible members. At current enrollment levels, this is the market with the most upside if conversion rate approaches program averages.</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Revenue to Goal</div><div class="kpi-val">58%</div><div class="kpi-ctx">~$85K of $148K goal</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$171</div><div class="kpi-ctx">Consistent with program range</div></div>
+    <div class="kpi teal"><div class="kpi-lbl">5-Month Review</div><div class="kpi-val">In Progress</div><div class="kpi-ctx">Activation and engagement data coming</div><div class="kpi-why">AZ's 5-month review is in preparation. Enrollment and engagement data are current — activation and barrier identification metrics will be added when the review is complete.</div></div>
   </div>
 
   <div class="section-header"><span class="section-label">Performance Review</span><span class="section-title">AZ 5-month performance review</span><div class="section-divider"></div></div>
@@ -1113,13 +975,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     <p>Add a de-identified Arizona Mercy Care member story when available from the 5-month review.</p>
   </div>
 
-  <div class="section-header"><span class="section-label">Revenue</span><span class="section-title">Billing performance</span><div class="section-divider"></div></div>
-  <div class="kpi-grid">
-    <div class="kpi green"><div class="kpi-lbl">Revenue Goal</div><div class="kpi-val">$147,724</div><div class="kpi-ctx">Mercy Care program goal</div></div>
-    <div class="kpi orange"><div class="kpi-lbl">Attained</div><div class="kpi-val">58%</div><div class="kpi-ctx">~$85K billed to date</div></div>
-    <div class="kpi slate"><div class="kpi-lbl">Avg Charge/Member</div><div class="kpi-val">$171</div></div>
-  </div>
-
   <div class="footer">Pyx Health &times; Aetna Medicaid Mid-Year Review &nbsp;|&nbsp; May 2026 &nbsp;|&nbsp; Confidential</div>
 </div>
 
@@ -1128,9 +983,6 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
 const D = {
   program: {
     totalEnrolled: 4424,
-    totalRevenue: 802760,
-    welcomeCharge: 369832,
-    ongoingCharge: 432928,
     billableCalls: 8909,
     avgMonths: 2.5
   },
@@ -1141,28 +993,28 @@ const D = {
   ],
   markets: [
     {code:'FL', name:'Florida',      type:'Behavioral Health',  cls:'bh',
-     enrolled:673, elig:54442, convPct:10.3, outPct:22.5, revGoal:143420, revPct:76, avgChg:177, activation:56,
-     signal:'Leads program in revenue attainment (76%) with the largest enrolled member count.'},
+     enrolled:673, elig:54442, convPct:10.3, outPct:22.5, activation:56,
+     signal:'Leads program in enrolled member count — largest active cohort in the portfolio. 56% BH activation in a historically hard-to-reach population.'},
     {code:'KY', name:'Kentucky',     type:'Smoking Cessation',  cls:'smoking',
-     enrolled:598, elig:107116, convPct:16.0, outPct:29.8, revGoal:194995, revPct:51, avgChg:172, activation:43,
+     enrolled:598, elig:107116, convPct:16.0, outPct:29.8, activation:43,
      signal:'43% activation with 32 documented quit dates — measurable cessation outcomes in 5 months.'},
     {code:'OK', name:'Oklahoma',     type:'BH / High Utilizers',cls:'bh',
-     enrolled:637, elig:76336, convPct:50.0, outPct:75.0, revGoal:173250, revPct:54, avgChg:154, activation:56,
+     enrolled:637, elig:76336, convPct:50.0, outPct:75.0, activation:56,
      signal:'Program-best 50% eligibility conversion and 75% outreach response. 91% care team engagement rate vs 62% prior.'},
     {code:'TX', name:'Texas',        type:'Diabetic Support',   cls:'diabetic',
-     enrolled:545, elig:26726, convPct:17.6, outPct:41.9, revGoal:194995, revPct:72, avgChg:175, activation:88,
+     enrolled:545, elig:26726, convPct:17.6, outPct:41.9, activation:88,
      signal:'88% activation — the program benchmark. Diabetic members completing care at near-universal rates.'},
     {code:'IL', name:'Illinois',     type:'Behavioral Health',  cls:'bh',
-     enrolled:543, elig:176595, convPct:17.5, outPct:38.7, revGoal:246684, revPct:48, avgChg:173, activation:64,
-     signal:'Highest revenue goal ($247K) with 64% activation. Largest eligibility pool — greatest growth opportunity.'},
+     enrolled:543, elig:176595, convPct:17.5, outPct:38.7, activation:64,
+     signal:'64% BH activation with the largest eligibility pool in the program — greatest growth opportunity.'},
     {code:'LA', name:'Louisiana',    type:'Maternal Health',    cls:'maternal',
-     enrolled:502, elig:93694, convPct:22.8, outPct:43.4, revGoal:136591, revPct:57, avgChg:179, activation:null,
-     signal:'Highest avg charge per member ($179) — reflecting the depth of maternal health engagement. Activation data through March.'},
+     enrolled:502, elig:93694, convPct:22.8, outPct:43.4, activation:null,
+     signal:'Deepest sustained engagement of any market — maternal members with high SDOH burden receiving the most intensive navigation support.'},
     {code:'MI', name:'Michigan',     type:'Maternal Support',   cls:'maternal',
-     enrolled:469, elig:27892, convPct:14.5, outPct:47.4, revGoal:143420, revPct:67, avgChg:177, activation:56,
+     enrolled:469, elig:27892, convPct:14.5, outPct:47.4, activation:56,
      signal:'86% of maternal members completed a visit — connecting directly to HEDIS postpartum measures.'},
     {code:'AZ', name:'Arizona',      type:'Mercy Care',         cls:'mercy',
-     enrolled:458, elig:205644, convPct:null, outPct:null, revGoal:147724, revPct:58, avgChg:171, activation:null,
+     enrolled:458, elig:205644, convPct:null, outPct:null, activation:null,
      signal:'205K eligibility pool — the largest market opportunity in the program. 5-month review in preparation.'}
   ],
   monthsService: [
@@ -1204,37 +1056,9 @@ function toggleTalkingPoints(btn) {
   btn.textContent = isOn ? 'Hide Talking Points' : 'Talking Points';
 }
 
-// ── NATIONAL KPIs ────────────────────────────────────────────────────
-function renderNationalKPIs() {
-  const kpis = [
-    {lbl:'Total Enrolled Members', val:fmt(D.program.totalEnrolled), ctx:'Across all 8 markets, 7 months', color:'green',
-     why:'4,424 care relationships established — members connected, screened, and navigated. Each one is a health plan relationship that didn\'t exist before November 2025.'},
-    {lbl:'Revenue to Date', val:fmt(D.program.totalRevenue, 'usd'), ctx:'Nov 2025 – May 7, 2026', color:'teal',
-     why:'$802K reflects delivered program value — not projections. 54% of that is ongoing engagement billing, meaning members are staying connected and building care plans.'},
-    {lbl:'Billable Engagement Calls', val:fmt(D.program.billableCalls), ctx:'Direct care team interactions', color:'blue',
-     why:'8,909 calls is the floor of human connection in this program. These aren\'t automated outreach attempts — these are care conversations between a Pyx team member and an Aetna member.'},
-    {lbl:'Avg Months of Engagement', val:fmt(D.program.avgMonths, 'dec'), ctx:'Across enrolled members', color:'orange',
-     why:'2.5 months average engagement means members aren\'t dropping after the first call. Sustained connection is the mechanism behind barrier identification and care activation.'},
-    {lbl:'Welcome Engagement', val:fmt(D.program.welcomeCharge, 'usd'), ctx:'First-touch member enrollment billing', color:'slate',
-     why:'Welcome charges represent the enrollment investment — every first conversation that establishes the care relationship.'},
-    {lbl:'Ongoing Engagement', val:fmt(D.program.ongoingCharge, 'usd'), ctx:'54% of total — ongoing now leads', color:'green',
-     why:'Ongoing charges now exceed welcome billing — the program has matured from launch to sustained delivery. Members are staying in, building care plans, taking action.'}
-  ];
-  $('national-kpis').innerHTML = kpis.map(k => `
-    <div class="kpi ${k.color}">
-      <div class="kpi-lbl">${k.lbl}</div>
-      <div class="kpi-val">${k.val}</div>
-      <div class="kpi-ctx">${k.ctx}</div>
-      <div class="kpi-why">${k.why}</div>
-    </div>`).join('');
-}
-
 // ── MARKET GRID ──────────────────────────────────────────────────────
 function renderMarketGrid() {
-  $('national-market-grid').innerHTML = D.markets.map(m => {
-    const pct = m.revPct;
-    const barCls = pct >= 70 ? '' : pct >= 55 ? 'amber' : 'red';
-    return `
+  $('national-market-grid').innerHTML = D.markets.map(m => `
     <div class="mkt-card ${m.cls}">
       <div class="mkt-card-header">
         <div class="mkt-name">${m.name} (${m.code})</div>
@@ -1254,20 +1078,12 @@ function renderMarketGrid() {
           <div class="mkt-stat-val">${fmt(m.elig)}</div>
         </div>
         <div class="mkt-stat">
-          <div class="mkt-stat-lbl">Avg $/Member</div>
-          <div class="mkt-stat-val blue">$${m.avgChg}</div>
+          <div class="mkt-stat-lbl">Outreach Conv.</div>
+          <div class="mkt-stat-val blue">${m.outPct ? fmt(m.outPct,'pct') : '—'}</div>
         </div>
-      </div>
-      <div class="mkt-rev-bar">
-        <div class="mkt-rev-label">
-          <span>Revenue to Goal</span>
-          <span class="pct">${pct}% of ${fmt(m.revGoal, 'usd')}</span>
-        </div>
-        <div class="progress-track"><div class="progress-fill ${barCls}" style="width:${pct}%"></div></div>
       </div>
       <div class="mkt-signal">${m.signal}</div>
-    </div>`;
-  }).join('');
+    </div>`).join('');
 }
 
 // ── ENROLLMENT CHART ─────────────────────────────────────────────────
@@ -1282,36 +1098,6 @@ function renderEnrollmentChart() {
       <div class="bar-lbl">${m.mo}</div>
     </div>`;
   }).join('');
-}
-
-// ── REVENUE TABLE ────────────────────────────────────────────────────
-function renderRevenueTable() {
-  const rows = D.markets.map(m => {
-    const pct = m.revPct;
-    const chipCls = pct >= 70 ? 'high' : pct >= 55 ? 'mid' : 'low';
-    const est = Math.round(m.revGoal * pct / 100);
-    return `<tr>
-      <td><strong>${m.name}</strong></td>
-      <td>${m.type}</td>
-      <td>${fmt(m.enrolled)}</td>
-      <td>${fmt(m.revGoal, 'usd')}</td>
-      <td>~${fmt(est, 'usd')}</td>
-      <td><span class="pct-chip ${chipCls}">${pct}%</span></td>
-      <td>$${m.avgChg}</td>
-    </tr>`;
-  }).join('');
-  const total = D.markets.reduce((s,m) => s + Math.round(m.revGoal * m.revPct / 100), 0);
-  const totalGoal = D.markets.reduce((s,m) => s + m.revGoal, 0);
-  $('revenue-table').innerHTML = `
-    <thead><tr>
-      <th>Market</th><th>Program</th><th>Enrolled</th><th>Revenue Goal</th><th>Est. Billed</th><th>% to Goal</th><th>Avg $/Member</th>
-    </tr></thead>
-    <tbody>${rows}
-    <tr>
-      <td>All Markets</td><td>—</td><td>${fmt(D.program.totalEnrolled)}</td>
-      <td>${fmt(totalGoal,'usd')}</td><td>${fmt(D.program.totalRevenue,'usd')}</td>
-      <td><span class="pct-chip high">~61% avg</span></td><td>—</td>
-    </tr></tbody>`;
 }
 
 // ── MONTHS CHART ─────────────────────────────────────────────────────
@@ -1397,8 +1183,8 @@ function renderVVActivationGrid() {
   const items = [
     {market:'Texas', pct:'88%', color:'#d6661a', type:'Diabetic', context:'88% of enrolled diabetic members completed a care visit — the program benchmark. Each visit is a HEDIS chronic condition measure being closed.'},
     {market:'Michigan', pct:'86%', color:'#29a4a2', type:'Maternal visit completion', context:'86% of enrolled maternal members completed a maternal care visit — well above the national Medicaid postpartum average of ~62%.'},
-    {market:'Illinois', pct:'64%', color:'#0076bf', type:'BH Access', context:'64% of enrolled BH members completed a care visit — in the market with the largest eligibility pool and the highest revenue goal in the program.'},
-    {market:'Florida', pct:'56%', color:'#0076bf', type:'BH Access', context:'56% of enrolled BH members activated — in the market with the highest enrollment count and the leading revenue attainment at 76%.'},
+    {market:'Illinois', pct:'64%', color:'#0076bf', type:'BH Access', context:'64% of enrolled BH members completed a care visit — in the market with the largest eligibility pool in the program and the most headroom to grow.'},
+    {market:'Florida', pct:'56%', color:'#0076bf', type:'BH Access', context:'56% of enrolled BH members activated — in the market with the largest enrolled member count in the program.'},
     {market:'Oklahoma', pct:'56%', color:'#0076bf', type:'High Utilizer visits', context:'56% of high-cost/high-utilizer members completed a preventive, BH, or follow-up visit. These are the members whose avoidable utilization costs the plan most.'},
     {market:'Kentucky', pct:'43%', color:'#5542a7', type:'Cessation milestones', context:'43% activation including 32 documented quit dates — a clinical behavior-change outcome, not just an engagement metric.'},
   ];
@@ -1411,10 +1197,8 @@ function renderVVActivationGrid() {
 }
 
 // ── INIT ─────────────────────────────────────────────────────────────
-renderNationalKPIs();
 renderMarketGrid();
 renderEnrollmentChart();
-renderRevenueTable();
 renderMonthsChart();
 renderOKBarriers();
 renderVVBarriers();
