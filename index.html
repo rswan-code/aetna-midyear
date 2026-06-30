@@ -139,6 +139,7 @@ h1,h2,h3{font-family:'Roboto Slab',serif}
 <nav class="tab-nav">
   <div class="nav-logo">pyx <span>health</span> &times; aetna medicaid</div>
   <button class="tab-btn active" onclick="showPage('value',this)">National Overview</button>
+  <button class="tab-btn" onclick="showPage('narrative',this)">Value Story</button>
   <button class="tab-btn" onclick="showPage('fl',this)">Florida</button>
   <button class="tab-btn" onclick="showPage('ky',this)">Kentucky</button>
   <button class="tab-btn" onclick="showPage('ok',this)">Oklahoma</button>
@@ -584,6 +585,221 @@ h1,h2,h3{font-family:'Roboto Slab',serif}
   </div>
 
 </div><!-- end page-value -->
+
+<!-- =============================================
+     VALUE STORY PAGE
+============================================= -->
+<div id="page-narrative" class="page">
+
+  <div class="client-header">
+    <div class="header-eyebrow">Pyx Health &times; Aetna Medicaid &middot; Mid-Year Review &middot; June 2026</div>
+    <h1>The value case: <strong>what changed, and why it matters.</strong></h1>
+    <p class="header-period">8 markets &middot; 4,701 members &middot; 8 months in &middot; Data through June 29, 2026</p>
+  </div>
+
+  <div class="value-anchor-banner">
+    <div class="vab-inner">
+      <div class="vab-eyebrow">The through-line</div>
+      <div class="vab-text">Aetna asked Pyx to reach members who weren&rsquo;t accessing care. Across 8 markets, <strong>members are measurably healthier, lonelier members are less lonely, and members who weren&rsquo;t in care now are.</strong> That is what this contract is producing.</div>
+    </div>
+  </div>
+
+  <!-- The ask and the population -->
+  <div class="stage-section white-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow eyebrow-1">The Population</div>
+        <div class="section-title">The members who weren&rsquo;t in care — and why.</div>
+        <div class="section-sub">Navigate was deployed to reach Medicaid members with the highest barriers to care: behavioral health diagnoses, tobacco dependency, maternal risk, and complex social need. These are members the standard care model consistently misses.</div>
+      </div>
+      <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="kpi teal">
+          <div class="kpi-lbl">SDoH Need Rate</div>
+          <div class="kpi-val">85%</div>
+          <div class="kpi-ctx">of enrolled members carry active social needs</div>
+          <div class="kpi-why">Non-medical barriers — not clinical ones — are why these members miss appointments, skip refills, and go unscreened.</div>
+        </div>
+        <div class="kpi orange">
+          <div class="kpi-lbl">Avg Unmet Needs</div>
+          <div class="kpi-val">4.4</div>
+          <div class="kpi-ctx">per member &middot; across 13 social domains</div>
+          <div class="kpi-why">4.4 unmet needs per person is not background noise. It is the accumulation that explains care avoidance, missed HEDIS measures, and avoidable utilization.</div>
+        </div>
+        <div class="kpi purple">
+          <div class="kpi-lbl">Behavioral + Social Need</div>
+          <div class="kpi-val">63%</div>
+          <div class="kpi-ctx">carry both simultaneously &middot; 65% flagged High or Urgent</div>
+          <div class="kpi-why">The plan&rsquo;s medical model addresses the behavioral health diagnosis. Pyx addresses the social layer underneath it — the piece that determines whether the clinical intervention actually works.</div>
+        </div>
+      </div>
+      <div class="portfolio-highlight" style="margin-top:20px">
+        <strong>4,701 members enrolled. 8 markets. 4 program types.</strong> Each of these members had a conversation with a Pyx care team member, shared what was actually happening in their life, and agreed to let us help. That conversation is the foundation of everything that followed.
+      </div>
+    </div>
+  </div>
+
+  <!-- Health outcomes -->
+  <div class="stage-section alt-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow eyebrow-3">Clinical Outcomes</div>
+        <div class="section-title">Members are measurably healthier.</div>
+        <div class="section-sub">These are not satisfaction scores. UCLA-3, PHQ-4, EPDS, and Healthy Days are validated clinical instruments used in peer-reviewed research. The changes below represent genuine health improvement — measured before and after Pyx engagement.</div>
+      </div>
+      <div class="kpi-grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="kpi teal">
+          <div class="kpi-lbl">Loneliness (UCLA-3)</div>
+          <div class="kpi-val">8 / 8</div>
+          <div class="kpi-ctx">Every market showing loneliness reduction &middot; 30&ndash;58% of members improved</div>
+          <div class="kpi-why">Loneliness is independently associated with higher rates of depression, cognitive decline, and preventable hospitalization. Reducing it at scale is clinically meaningful — not just experiential.</div>
+        </div>
+        <div class="kpi purple">
+          <div class="kpi-lbl">Mood / Anxiety (PHQ-4)</div>
+          <div class="kpi-val">8 / 8</div>
+          <div class="kpi-ctx">Every market showing mood improvement &middot; 42&ndash;59% of members improved</div>
+          <div class="kpi-why">PHQ-4 improvement tracks with better medication adherence, lower no-show rates, and increased care plan engagement — upstream of the quality measures the plan tracks.</div>
+        </div>
+      </div>
+      <div class="kpi-grid" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+        <div class="kpi">
+          <div class="kpi-lbl">Healthy Days Gained</div>
+          <div class="kpi-val">+7 to +18</div>
+          <div class="kpi-ctx">for members with 14+ unhealthy baseline days &middot; Kentucky leads at +17.7</div>
+          <div class="kpi-why">A member gaining 17 healthy days is a member less likely to present in the ED. For the sickest members — the ones driving the most cost — this is the signal that matters.</div>
+        </div>
+        <div class="kpi blue">
+          <div class="kpi-lbl">Perinatal Depression (EPDS)</div>
+          <div class="kpi-val">50&ndash;88%</div>
+          <div class="kpi-ctx">of perinatal members showing EPDS improvement &middot; 6 markets with maternal programming</div>
+          <div class="kpi-why">Untreated perinatal depression is a driver of low birth weight, NICU utilization, and postpartum readmission. These reductions represent real risk removed from the maternal population.</div>
+        </div>
+      </div>
+      <div style="margin-top:24px;padding:24px;background:#fff;border-radius:12px;border-left:4px solid var(--teal)">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:10px">Why this matters to the plan</div>
+        <p style="font-size:14px;font-family:'Roboto Slab',serif;font-weight:300;color:var(--slate);line-height:1.8">Members who are less lonely, less depressed, and gaining healthy days are members who show up for appointments, adhere to treatment plans, and generate fewer avoidable costs. <strong style="font-weight:600">These clinical shifts are leading indicators — the ROI case is being built in real time.</strong> Score change data reflects mid-April 2026 onward.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Access to care / activation -->
+  <div class="stage-section white-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow eyebrow-2">Quality &amp; Activation</div>
+        <div class="section-title">The members who weren&rsquo;t in care — now are.</div>
+        <div class="section-sub">Access to care is the #1 focus of goal-based care portfolio-wide. 113 goals are actively working to close the gap between member and provider — the same gap that shows up in HEDIS, in quality scores, and in avoidable utilization.</div>
+      </div>
+      <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="kpi orange">
+          <div class="kpi-lbl">Access-to-Care Goals</div>
+          <div class="kpi-val">113</div>
+          <div class="kpi-ctx">#1 goal focus portfolio-wide &middot; LA 47 &middot; TX 15 &middot; IL 11</div>
+          <div class="kpi-why">Each access goal is a care team member working side-by-side with a member to find a provider, schedule a visit, and remove the specific barrier that was in the way.</div>
+        </div>
+        <div class="kpi teal">
+          <div class="kpi-lbl">Documented Appointments</div>
+          <div class="kpi-val">~2,475</div>
+          <div class="kpi-ctx">across all 8 markets &middot; tracked through care gaps and Pyx navigation records</div>
+          <div class="kpi-why">2,475 appointments is not a projection. These are completed visits — members who navigated a real barrier and showed up for care their plan is accountable for.</div>
+        </div>
+        <div class="kpi blue">
+          <div class="kpi-lbl">TX BH Activation</div>
+          <div class="kpi-val">88%</div>
+          <div class="kpi-ctx">BH / STAR program &middot; portfolio best &middot; care completion rate</div>
+          <div class="kpi-why">88% of enrolled Texas BH members completed a care visit. That is not an engagement number — it is a care completion rate in one of the hardest populations to reach.</div>
+        </div>
+      </div>
+      <div class="kpi-grid" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+        <div class="kpi">
+          <div class="kpi-lbl">MI Maternal Activation</div>
+          <div class="kpi-val">86%</div>
+          <div class="kpi-ctx">vs. 62% national Medicaid postpartum average &middot; +24 points</div>
+          <div class="kpi-why">The national benchmark for Medicaid postpartum engagement is 62%. Michigan&rsquo;s Navigate members are completing care at a rate 24 points above that — a PPC measure that shows up directly in star ratings.</div>
+        </div>
+        <div class="kpi purple">
+          <div class="kpi-lbl">KY Tobacco Progress</div>
+          <div class="kpi-val">32</div>
+          <div class="kpi-ctx">documented quit dates set &middot; 43% activation rate &middot; highest-need cessation market</div>
+          <div class="kpi-why">Tobacco cessation is one of the highest-value quality interventions in Medicaid. 32 quit dates means 32 members who took a concrete step — the kind of step that moves rates.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social barrier removal -->
+  <div class="stage-section alt-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow eyebrow-1">The Non-Medical Layer</div>
+        <div class="section-title">Barriers identified. Barriers removed.</div>
+        <div class="section-sub">The work that enables care completion isn&rsquo;t clinical — it&rsquo;s the layer underneath: the food insecurity that makes it impossible to keep an appointment, the transportation that explains every no-show, the housing instability that makes medication adherence feel irrelevant. Pyx is the only thing in the care model addressing this layer systematically.</div>
+      </div>
+      <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="kpi teal">
+          <div class="kpi-lbl">Resources Connected</div>
+          <div class="kpi-val">17,632</div>
+          <div class="kpi-ctx">community &amp; health plan resources navigated to members across all 8 markets</div>
+        </div>
+        <div class="kpi blue">
+          <div class="kpi-lbl">Member Goals Met</div>
+          <div class="kpi-val">75</div>
+          <div class="kpi-ctx">barriers fully resolved &middot; in ~10 weeks of goal-based care</div>
+          <div class="kpi-why">A resolved goal is a barrier that no longer exists for that member. 75 in 10 weeks, with 80% of active goals still in progress — this pipeline is building.</div>
+        </div>
+        <div class="kpi orange">
+          <div class="kpi-lbl">Loneliness Interventions</div>
+          <div class="kpi-val">6,079</div>
+          <div class="kpi-ctx">positive psych interventions delivered across portfolio</div>
+          <div class="kpi-why">Loneliness is upstream of depression, care avoidance, and avoidable utilization. 6,079 targeted interventions is systematic, not incidental.</div>
+        </div>
+      </div>
+      <div style="margin-top:24px;padding:24px;background:#fff;border-radius:12px;border-left:4px solid var(--green)">
+        <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:10px">The goal-based care layer — 10 weeks old</div>
+        <p style="font-size:14px;font-family:'Roboto Slab',serif;font-weight:300;color:var(--slate);line-height:1.8">Goal-based care launched mid-April. In ~10 weeks: <strong style="font-weight:600">699 goals set, 673 care-team interventions delivered, 945 resources matched to member needs.</strong> 14% of live goals are already fully met. The remaining 80% are actively in progress — completion volume climbing week over week. This is a new capability in the contract, and it is already producing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- What it means for the plan -->
+  <div style="background:var(--slate);padding:56px 0;color:#fff">
+    <div class="wrap">
+      <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--lgreen);margin-bottom:16px">Why This Matters to Aetna</div>
+      <div style="font-family:'Roboto Slab',serif;font-size:28px;font-weight:300;line-height:1.3;margin-bottom:40px;max-width:760px">Navigate is not adding a layer of engagement. <strong style="font-weight:700">It is the layer that makes the rest of the care model work.</strong></div>
+      <div class="goals-grid">
+        <div class="goal-card">
+          <div class="goal-lbl">Quality Measures</div>
+          <div class="goal-statement">Every access goal closed, every appointment completed, every perinatal member supported is a HEDIS measure moving in the right direction.</div>
+          <div class="goal-action">BH visit completion, PPC, tobacco cessation, well-child visits — Navigate is the mechanism that gets members to the care the plan is scored on.</div>
+        </div>
+        <div class="goal-card">
+          <div class="goal-lbl">Risk Reduction</div>
+          <div class="goal-statement">Loneliness, untreated distress, and unmet social needs are upstream drivers of avoidable utilization — the costs medical benefits don&rsquo;t reach.</div>
+          <div class="goal-action">Members gaining healthy days, reducing loneliness and PHQ-4 scores are members whose utilization trajectory is changing. The clinical signal is already there.</div>
+        </div>
+        <div class="goal-card">
+          <div class="goal-lbl">Member Experience &amp; Retention</div>
+          <div class="goal-statement">Members who feel supported, whose barriers are resolved, and who complete care are members who stay with the plan.</div>
+          <div class="goal-action">Validated improvements in loneliness and mood at scale are not soft outcomes — they are the predictors of the member experience scores the plan tracks.</div>
+        </div>
+        <div class="goal-card">
+          <div class="goal-lbl">SDOH Compliance</div>
+          <div class="goal-statement">Systematic screening and resolution of health-related social needs supports state Medicaid contract requirements across all 8 markets.</div>
+          <div class="goal-action">85% need rate identified, documented, and worked. This is not checkbox compliance — it is a functioning social-care infrastructure the plan can point to.</div>
+        </div>
+      </div>
+      <div style="margin-top:36px;padding:24px 0;border-top:1px solid rgba(255,255,255,.15)">
+        <p style="font-size:13px;color:rgba(255,255,255,.7);font-style:italic;max-width:820px">The data here reflects the members already in our care. The same unmet need exists, unaddressed, across the broader screened population — and the model to resolve it is proven and scaling. Score change data from mid-April 2026 onward. Healthy Days for members with 14+ unhealthy baseline days.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">pyx <span>health</span></div>
+    <div>Pyx Health &times; Aetna Medicaid Mid-Year Review &middot; June 2026 &middot; Confidential</div>
+    <div>8 Markets &middot; 4,701 Members &middot; Data through June 29, 2026</div>
+  </div>
+
+</div><!-- end page-narrative -->
 
 <!-- =============================================
      FLORIDA PAGE
